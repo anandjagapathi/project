@@ -1,0 +1,99 @@
+<div class="-top-px bg-white mb-6 md:hidden py-2 sticky z-20">
+    <div class="">
+        <div class="flex items-center justify-between">
+            <a aria-current="page" [routerLink]="['/']"
+                class="router-link-active router-link-exact-active inline-block flex">
+                <span class="text-3xl ms-2.5"> DriveEase</span>
+            </a>
+            <div class="flex flex-col gap-2 justify-end">
+                <div class="flex justify-end">
+                    @if (isLoggedIn) {
+                    <a (click)="logout()" type="button"
+                        class="group flex items-center rounded-md font-semibold uppercase leading-none [&amp;_svg]:mt-[1px] border-2 border-gray-darkest duration-[250ms] text-white h-[45px] cursor-pointer"
+                        style="background: linear-gradient(270deg, rgb(41, 46, 59) 0.24%, rgb(252, 252, 252) 861.96%);">
+                        <div class="flex border-2 border-transparent rounded-md px-7 py-3 items-center">
+
+                            <span class="ml-2 text-base leading-none">Logout</span>
+                        </div>
+                    </a>
+                    }
+                    @else {
+                    <!-- <button mat-raised-button color="primary" (click)="signUp()">Become a member</button> -->
+
+                    <a (click)="signUp()" type="button"
+                        class="group flex items-center rounded-md font-semibold uppercase leading-none [&amp;_svg]:mt-[1px] border-2 border-gray-darkest duration-[250ms] text-white h-[45px] cursor-pointer"
+                        style="background: linear-gradient(270deg, rgb(41, 46, 59) 0.24%, rgb(252, 252, 252) 861.96%);">
+                        <div class="flex border-2 border-transparent rounded-md px-7 py-3 items-center">
+
+                            <span class="ml-2 text-base leading-none">Register</span>
+                        </div>
+                    </a>
+
+
+                    <!-- <button mat-raised-button color="primary" (click)="showsignin()">Signin</button> -->
+
+                    <a (click)="showsignin()" type="button"
+                        class="group flex items-center rounded-md font-semibold uppercase leading-none [&amp;_svg]:mt-[1px] border-2 border-gray-darkest duration-[250ms] text-white h-[45px] cursor-pointer"
+                        style="background: linear-gradient(270deg, rgb(41, 46, 59) 0.24%, rgb(252, 252, 252) 861.96%);">
+                        <div class="flex border-2 border-transparent rounded-md px-7 py-3 items-center">
+
+                            <span class="ml-2 text-base leading-none">Signin</span>
+                        </div>
+                    </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        style="position: fixed; height: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border-width: 0px; display: none;">
+    </div>
+</div>
+
+<div class="hidden pr-10 px-5 md:flex md:gap-5 md:justify-between md:items-center">
+    <div class="mb-12">
+    </div>
+    <div class="flex flex-col gap-2 justify-end">
+        <div class="flex justify-end">
+            @if (isLoggedIn) {
+            <!-- <button mat-raised-button color="primary" (click)="logout()">Lougot</button> -->
+
+            <a (click)="logout()" type="button"
+                class="group flex items-center rounded-md font-semibold uppercase leading-none [&amp;_svg]:mt-[1px] border-2 border-gray-darkest duration-[250ms] text-white h-[45px] cursor-pointer"
+                style="background: linear-gradient(270deg, rgb(41, 46, 59) 0.24%, rgb(252, 252, 252) 861.96%);">
+                <div class="flex border-2 border-transparent rounded-md px-7 py-3 items-center">
+
+                    <span class="ml-2 text-base leading-none">Logout</span>
+                </div>
+            </a>
+            }
+            @else {
+            <!-- <button mat-raised-button color="primary" (click)="signUp()">Become a member</button> -->
+
+            <a (click)="signUp()" type="button"
+                class="group flex items-center rounded-md font-semibold uppercase leading-none [&amp;_svg]:mt-[1px] border-2 border-gray-darkest duration-[250ms] text-white h-[45px] cursor-pointer"
+                style="background: linear-gradient(270deg, rgb(41, 46, 59) 0.24%, rgb(252, 252, 252) 861.96%);">
+                <div class="flex border-2 border-transparent rounded-md px-7 py-3 items-center">
+
+                    <span class="ml-2 text-base leading-none">Become a member</span>
+                </div>
+            </a>
+
+
+            <!-- <button mat-raised-button color="primary" (click)="showsignin()">Signin</button> -->
+
+            <a (click)="showsignin()" type="button"
+                class="group flex items-center rounded-md font-semibold uppercase leading-none [&amp;_svg]:mt-[1px] border-2 border-gray-darkest duration-[250ms] text-white h-[45px] cursor-pointer"
+                style="background: linear-gradient(270deg, rgb(41, 46, 59) 0.24%, rgb(252, 252, 252) 861.96%);">
+                <div class="flex border-2 border-transparent rounded-md px-7 py-3 items-center">
+
+                    <span class="ml-2 text-base leading-none">Signin</span>
+                </div>
+            </a>
+            }
+
+
+        </div>
+
+    </div>
+</div>

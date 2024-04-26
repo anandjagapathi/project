@@ -1,0 +1,66 @@
+<h1 mat-dialog-title>
+    <div class="text-center text-lg font-semibold">
+        Add new Car
+    </div>
+
+</h1>
+<form [formGroup]="addNewCarForm" (submit)="onSave()">
+    <div mat-dialog-content>
+        <div
+            class="md:flex md:items-center md:justify-center  md:rounded-none md:shadow-none sm:bg-card sm:p-2 sm:rounded-2xl sm:shadow">
+
+            <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0">
+
+                <mat-form-field class="w-full mb-1">
+                    <input placeholder="Car name" matInput [formControlName]="'name'">
+                    <mat-error *ngIf="addNewCarForm.get('name')?.hasError('name')">
+                        Car name is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-full mb-1">
+                    <input placeholder="Car price per day" matInput [formControlName]="'price'">
+                    <mat-error *ngIf="addNewCarForm.get('price')?.hasError('price')">
+                        Car price is required
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-full mb-1">
+                    <textarea placeholder="Tell some details about car" matInput
+                        [formControlName]="'description'"></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="w-full mb-1">
+                    <textarea placeholder="Enter any special requirements (if any)" matInput
+                        [formControlName]="'requirements'"></textarea>
+                </mat-form-field>
+
+                <div class="hidden">
+                    <input #file_input type="file" (change)="onImageChange($event)" placeholder="Select car cover image"
+                        accept="image/*">
+                </div>
+
+                <div class="w-full mb-1">
+                    <button type="button" class="w-full p-3 m-2 rounded bg-black text-white"
+                        (click)="file_input.click()">
+                        <ng-container *ngIf="addNewCarForm.get('images')?.value">
+                            Upload Image
+                        </ng-container>
+                        <ng-container *ngIf="!addNewCarForm.get('images')?.value">
+                            Upload new image
+                        </ng-container>
+                    </button>
+                </div>
+
+                <div *ngIf="addNewCarForm.get('images')?.value" class="w-full h-[200px] flex items-center">
+                    <img style="width: 100%; height: 100%;"
+                        src="{{env.api_url}}/assets/{{addNewCarForm.get('images')?.value}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button type="button" mat-button (click)="onNoClick()">Cancle</button>
+        <button type="submit" mat-button cdkFocusInitial>Save</button>
+    </div>
+</form>

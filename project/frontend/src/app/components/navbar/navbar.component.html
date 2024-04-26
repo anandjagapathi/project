@@ -1,0 +1,7 @@
+<a routerLink="/">All Cars</a>
+@if (userType === 'customer') {
+<a routerLink="/customer/bookings">Bookings</a>
+}
+@if (userType === 'owner') {
+<a routerLink="/profile">Add Cars</a>
+}

@@ -1,0 +1,44 @@
+<section class="text-gray-700 body-font overflow-hidden bg-white">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <img alt="ecommerce" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
+                src="{{env.api_url}}/assets/{{car.images}}">
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                <h2 class="text-sm title-font text-gray-500 tracking-widest">{{car.ownerName}}</h2>
+                <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{car.name}}</h1>
+
+                <p class="leading-relaxed text-gray-500 my-3">{{car.description}}</p>
+                <p class="leading-relaxed text-gray-600 font-semibold my-3">Requirement: {{car.requirements}}</p>
+
+                <div class="flex">
+                    <span class="title-font font-medium text-2xl text-gray-900 my-3">{{car.price | currency}}</span>
+
+                </div>
+
+                <hr class="my-3">
+                <div class="flex" class="p-4" *ngIf="data.view !== 'simple'">
+                    <mat-form-field class="w-full">
+                        <mat-label>Date Range</mat-label>
+                        <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker">
+                            <input matStartDate placeholder="Start date" formControlName="start">
+                            <input matEndDate placeholder="End date" formControlName="end">
+                        </mat-date-range-input>
+                        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+                    </mat-form-field>
+
+                    <div class="">
+                        <button (click)="checkForBooking()" mat-raised-button color="primary" class="w-full"
+                            *ngIf="!isBookingAvailable">Check
+                            Booking</button>
+                        <button mat-raised-button color="primary" class="w-full" (click)="bookCar()"
+                            *ngIf="isBookingAvailable">Book Car</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>

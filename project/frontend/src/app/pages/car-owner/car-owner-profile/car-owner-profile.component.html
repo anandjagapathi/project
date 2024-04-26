@@ -1,0 +1,12 @@
+<div class="my-1 font-bold text-lg flex flex-row justify-between px-10">
+    <div>Add new car</div>
+    <div><button mat-raised-button color="primary" (click)="showAddNewCarModal()"> Add New Car</button></div>
+</div>
+<div class="p-3">
+    <div
+        class="grid my-8 border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-3 gap-3 bg-white dark:bg-gray-800">
+        @for (item of cars; track $index) {
+        <app-car-card [car]="item" (refreshItems)="getMyCars()"></app-car-card>
+        }
+    </div>
+</div>

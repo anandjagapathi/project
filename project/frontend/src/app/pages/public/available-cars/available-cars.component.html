@@ -1,0 +1,18 @@
+<div
+    class="grid my-8 border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-3 gap-3 bg-white dark:bg-gray-800">
+
+    @defer (on viewport; when cars.length > 0) {
+    @for (item of cars; track $index) {
+    @defer (on viewport;) {
+    <app-car-card [car]="item" (refreshItems)="getAllCars()"></app-car-card>
+    }
+    @placeholder {
+    <h1></h1>
+    }
+    }
+    } @placeholder {
+    <div class="text-center text-gray-400 italic p-5">
+        No cars available
+    </div>
+    }
+</div>

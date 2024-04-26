@@ -1,0 +1,35 @@
+<div class="my-1 font-bold text-lg">
+    Your Bookings
+</div>
+<div class="p-3">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 my-3">
+        <ng-container matColumnDef="carName">
+            <th mat-header-cell *matHeaderCellDef> Car </th>
+            <td mat-cell *matCellDef="let element"> {{element.car.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="startDate">
+            <th mat-header-cell *matHeaderCellDef> Start date </th>
+            <td mat-cell *matCellDef="let element"> {{element.start_date | date:'longDate'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="endDate">
+            <th mat-header-cell *matHeaderCellDef> End date </th>
+            <td mat-cell *matCellDef="let element"> {{element.end_date | date:'longDate'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"> <button (click)="cancelBooking(element.id)"
+                    class="bg-red-500 rounded p-3 text-white">Cancel</button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+                <div class="text-center text-gray-500 italic p-4">
+                    No bookings available
+                </div>
+
+            </td>
+        </tr>
+    </table>
+</div>
